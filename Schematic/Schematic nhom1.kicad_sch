@@ -2010,7 +2010,7 @@
 				)
 			)
 		)
-		(symbol "Simulation_SPICE:VSIN"
+		(symbol "Simulation_SPICE:VDC"
 			(pin_numbers hide)
 			(pin_names
 				(offset 0.0254)
@@ -2027,7 +2027,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "VSIN"
+			(property "Value" "1"
 				(at 2.54 0 0)
 				(effects
 					(font
@@ -2054,7 +2054,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Voltage source, sinusoidal"
+			(property "Description" "Voltage source, DC"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2072,16 +2072,7 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Params" "dc=0 ampl=1 f=1k ac=1"
-				(at 2.54 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Sim.Type" "SIN"
+			(property "Sim.Type" "DC"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2100,7 +2091,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "simulation ac vac"
+			(property "ki_keywords" "simulation"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2109,11 +2100,11 @@
 					(hide yes)
 				)
 			)
-			(symbol "VSIN_0_0"
-				(arc
-					(start 0 0)
-					(mid -0.635 0.6323)
-					(end -1.27 0)
+			(symbol "VDC_0_0"
+				(polyline
+					(pts
+						(xy -1.27 0.254) (xy 1.27 0.254)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2122,10 +2113,34 @@
 						(type none)
 					)
 				)
-				(arc
-					(start 0 0)
-					(mid 0.635 -0.6323)
-					(end 1.27 0)
+				(polyline
+					(pts
+						(xy -0.762 -0.254) (xy -1.27 -0.254)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 -0.254) (xy -0.254 -0.254)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -0.254) (xy 0.762 -0.254)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2143,7 +2158,7 @@
 					)
 				)
 			)
-			(symbol "VSIN_0_1"
+			(symbol "VDC_0_1"
 				(circle
 					(center 0 0)
 					(radius 2.54)
@@ -2156,7 +2171,7 @@
 					)
 				)
 			)
-			(symbol "VSIN_1_1"
+			(symbol "VDC_1_1"
 				(pin passive line
 					(at 0 5.08 270)
 					(length 2.54)
@@ -4193,6 +4208,102 @@
 		)
 	)
 	(symbol
+		(lib_id "Simulation_SPICE:VDC")
+		(at 212.09 74.93 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "337acdaf-34fa-4f6f-bd6b-c8de711dcfce")
+		(property "Reference" "V2"
+			(at 212.2198 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1"
+			(at 212.2198 69.85 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 212.09 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+			(at 212.09 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Voltage source, DC"
+			(at 212.09 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 212.09 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" "DC"
+			(at 212.09 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 212.09 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "264cb364-04a6-48fd-8b6f-317879fb059f")
+		)
+		(pin "2"
+			(uuid "79b860e2-5086-43e9-ba4f-ec8a4382519a")
+		)
+		(instances
+			(project ""
+				(path "/23bca959-424d-432f-8902-aec505b99b2a"
+					(reference "V2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 80.01 69.85 270)
 		(unit 1)
@@ -4497,7 +4608,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8bd9caf6-b979-47a7-a3b0-76c08f28e799")
-		(property "Reference" "LM1"
+		(property "Reference" "LM2596"
 			(at 218.44 99.0599 0)
 			(effects
 				(font
@@ -4557,7 +4668,7 @@
 		(instances
 			(project ""
 				(path "/23bca959-424d-432f-8902-aec505b99b2a"
-					(reference "LM1")
+					(reference "LM2596")
 					(unit 1)
 				)
 			)
@@ -4859,110 +4970,6 @@
 			(project "Schematic nhom1"
 				(path "/23bca959-424d-432f-8902-aec505b99b2a"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:VSIN")
-		(at 212.09 74.93 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cab32139-c2e3-48a3-bfc0-e9af72155bb3")
-		(property "Reference" "V1"
-			(at 212.2198 64.77 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VSIN"
-			(at 212.2198 67.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 212.09 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 212.09 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Voltage source, sinusoidal"
-			(at 212.09 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 212.09 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" "dc=0 ampl=1 f=1k ac=1"
-			(at 212.2198 69.85 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Type" "SIN"
-			(at 212.09 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "V"
-			(at 212.09 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9b30c7a0-8931-4301-934b-bd7979031e8c")
-		)
-		(pin "2"
-			(uuid "80bb5d4c-2cf3-41af-9077-4b89840f616a")
-		)
-		(instances
-			(project ""
-				(path "/23bca959-424d-432f-8902-aec505b99b2a"
-					(reference "V1")
 					(unit 1)
 				)
 			)
