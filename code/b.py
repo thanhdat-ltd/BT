@@ -1,4 +1,4 @@
-import cv2
+import cv2 
 import mediapipe as mp
 import numpy as np
 from mediapipe.framework.formats import landmark_pb2
@@ -36,15 +36,11 @@ while True:
     # Tạo bản sao của frame để vẽ kết quả
     annotated_image = frame.copy()
 
-    # Nếu có phát hiện gesture, xử lý kết quả
+    # Kiểm tra nếu có bàn tay được nhận diện
     if recognition_result.gestures:
-        # Giả sử lấy gesture của bàn tay đầu tiên
-        top_gesture = recognition_result.gestures[0][0]
-        # Lấy danh sách landmark của bàn tay
-        hand_landmarks_list = recognition_result.hand_landmarks
+        for i, (gesture_list, hand_landmarks) in enumerate(zip(recognition_result.gestures, recognition_result.hand_landmarks)):
+            top_gesture = gesture_list[0]  # Lấy gesture có độ chính xác cao nhất của mỗi bàn tay
 
-        # Vẽ landmark cho từng bàn tay
-        for hand_landmarks in hand_landmarks_list:
             # Chuyển các landmark về dạng protobuf để sử dụng hàm vẽ của MediaPipe
             hand_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
             hand_landmarks_proto.landmark.extend([
@@ -60,10 +56,10 @@ while True:
                 mp_drawing_styles.get_default_hand_connections_style()
             )
 
-        # Hiển thị tên gesture và score lên góc trái của frame
-        text = f"{top_gesture.category_name} ({top_gesture.score:.2f})"
-        cv2.putText(annotated_image, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
-                    1, (0, 255, 0), 2, cv2.LINE_AA)
+            # Hiển thị tên gesture và score lên màn hình
+            text = f"Hand {i+1}: {top_gesture.category_name} ({top_gesture.score:.2f})"
+            cv2.putText(annotated_image, text, (10, 30 + i * 40), cv2.FONT_HERSHEY_SIMPLEX,
+                        1, (0, 255, 0), 2, cv2.LINE_AA)
 
     # Hiển thị kết quả
     cv2.imshow("Gesture Recognition", annotated_image)
