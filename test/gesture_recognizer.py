@@ -5,8 +5,9 @@ from mediapipe.framework.formats import landmark_pb2
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
+
 # --- Khởi tạo đối tượng GestureRecognizer ---
-base_options = python.BaseOptions(model_asset_path='code\gesture_recognizer.task')
+base_options = python.BaseOptions(model_asset_path='models/gesture_recognizer.task')
 options = vision.GestureRecognizerOptions(base_options=base_options)
 recognizer = vision.GestureRecognizer.create_from_options(options)
 
